@@ -33,8 +33,7 @@ public class Lab7 {
         BufferedWriter bufWriter = null;
         
         int size = 0;
-        double det = 0;
-        double inv = 0;
+        double det = 0.0;
         
         
         try {
@@ -70,10 +69,42 @@ public class Lab7 {
                 
                 }
                 
+                //Create matrix with given size and values from input file
                 Matrix m = new Matrix(size, arr);
                 
-                //print matrix to file
-                printMatrixInfo(m, bufWriter);
+                //Print out matrix
+                bufWriter.write("M =\n");
+                for (int i = 0; i < size; i++) {
+                    for (int j = 0; j < size; j++) {
+                        bufWriter.write(String.valueOf(m.mdata[i][j]) + " ");
+                    
+                    }
+                    bufWriter.write("\n");
+                
+                }
+                
+                //Get determinant of matrix
+                det = m.determinant();
+                bufWriter.write("det(M) = " + det + "\n");
+                
+                if (det != 0) {
+                
+                    //Get inverse of matrix
+                    Matrix inv = m.getInverse();
+                    //Print out matrix inverse
+                    bufWriter.write("Minv =\n");
+                    for (int i = 0; i < size; i++) {
+                        for (int j = 0; j < size; j++) {
+                            bufWriter.write(String.valueOf(inv.mdata[i][j]) + " ");
+                        
+                        }
+                        bufWriter.write("\n");
+                
+                    }
+                    
+                }    
+                
+                
                 
                 //Read in size of next matrix
                 a = bufReader.readLine();
@@ -98,6 +129,5 @@ public class Lab7 {
         
     
     }
-
 
 }
