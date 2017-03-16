@@ -55,3 +55,35 @@ public class Matrix {
 
 
 }
+
+
+//Method that returns a specified sub matrix
+public Matrix getSubMatrix(int r, int c) {
+    //Initialize submatrix
+    Matrix sub = new Matrix(size - 1);
+
+    //Keep track of row in submatrix
+    int row = 0;
+    for (int i = 0; i < size; i++) {
+        if (i == r) continue;
+        
+        //Keep track of column in submatrix
+        int col = 0;
+        for (int j = 0; j < size; j++) {
+            if (j == c) continue;
+            
+            //If you are in correct row and column, copy data from matrix into new submatrix
+            sub.mdata[row][col] = mdata[i][j];
+            col++;
+        
+        }
+        row++;
+    
+    }
+    
+    return sub;
+
+}
+
+
+
