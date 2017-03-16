@@ -34,7 +34,48 @@ public class Lab7 {
         
         int size = 0;
         double det = 0;
-        double inv = 0
+        double inv = 0;
+        
+        
+        try {
+            //Initialize file IO
+            fileRead = new FileReader(inputFile);
+            bufReader = new BufferedReader(fileRead);
+            fileWrite = new FileWriter(outputFile);
+            bufWriter = new BufferedWriter(fileWrite);
+            String line = "";
+            
+            //Read in size of string
+            String m = bufReader.readLine();
+            
+            while (m != null) {
+                size = Integer.parseInt(m);
+                
+                //Initialize 
+                String[] strArr = new String[size];
+                int[][] arr = new int[size][size];
+                
+                for (int i = 0; i < size; i++) {
+                    //Read in first row of matrix
+                    line = bufReader.readLine();
+                    
+                    //Split line into array of only values
+                    strArr = line.split(" ");
+                    
+                    //Store row in matrix
+                    for (int j = 0; j < size; j++) {
+                        arr[i][j] = Integer.parseInt(strArr[j]);
+                    
+                    }
+                
+                }
+                
+                
+            
+            }
+        
+        
+        }
         
         
         
