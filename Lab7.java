@@ -46,9 +46,9 @@ public class Lab7 {
             String line = "";
             
             //Read in size of string
-            String m = bufReader.readLine();
+            String a = bufReader.readLine();
             
-            while (m != null) {
+            while (a != null) {
                 size = Integer.parseInt(m);
                 
                 //Initialize 
@@ -70,15 +70,30 @@ public class Lab7 {
                 
                 }
                 
+                Matrix m = new Matrix(size, arr);
+                
+                //print matrix to file
+                printMatrixInfo(m, bufWriter);
+                
+                //Read in size of next matrix
+                a = bufReader.readLine();
+                
                 
             
             }
+            
+            //Close all file IO
+            bufReader.close();
+            bufWriter.close();
+            fileRead.close();
+            fileWriter.close();
         
         
         }
-        
-        
-        
+        catch (Exception e) {
+            System.err.println("Error: " + e.getMessage());
+        }
+              
         
         
     
