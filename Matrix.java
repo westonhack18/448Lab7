@@ -85,5 +85,28 @@ public Matrix getSubMatrix(int r, int c) {
 
 }
 
+//Method that gets and returns the inverse of the matrix
+public Matrix getInverse() {
+
+    //Create new matrix to store inverse matrix
+    Matrix inv = new Matrix(size);
+    //Get determinant of current matrix to use in calculating the inverse
+    double det = this.determinant();
+    
+    //Traverse current matrix and store correct calculation of inverse in inverse matrix
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            inv.mdata[i][j] = Math.pow(-1.0, (double)(i + j)) * getSubMatrix(j, i).determinant() / det;
+        
+        }
+    
+    
+    }
+    
+    return inv;
+    
+}
+
+
 
 
